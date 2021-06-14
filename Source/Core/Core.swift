@@ -1039,12 +1039,8 @@ extension FormViewController {
             table.contentInset = tableInsets
             table.scrollIndicatorInsets = scrollIndicatorInsets
             if let selectedRow = table.indexPath(for: cell) {
-                if ProcessInfo.processInfo.operatingSystemVersion.majorVersion == 11 {
-                    let rect = table.rectForRow(at: selectedRow)
-                    table.scrollRectToVisible(rect, animated: animateScroll)
-                } else {
-                    table.scrollToRow(at: selectedRow, at: defaultScrollPosition, animated: animateScroll)
-                }
+                let rect = table.rectForRow(at: selectedRow)
+                table.scrollRectToVisible(rect, animated: animateScroll)
             }
             UIView.commitAnimations()
         }
